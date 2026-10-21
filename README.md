@@ -1,57 +1,60 @@
 # praxis
 
-Codeforces training arc, Sep 2026 – Sep 2027. Source of truth for the plan: the Notion hub
-"Competitive Programming — Codeforces Roadmap". Languages: **Python and Rust only**.
+My Codeforces practice log: solutions, notes and contest post-mortems, written in **Python and Rust**.
 
-- Python for most problems until it hits time limits; Rust when the constant factor matters.
-- No contest-time experiments with unfamiliar Rust features; stick to `templates/base.rs`.
-- Phase 5 (interview taper) re-implements Tier 1 problems in Python.
+The idea is to build problem-solving recognition rather than collect accepted submissions. Every solution
+starts with a one-line `insight:` comment stating the observation that cracked it, and problems are filed by
+that insight rather than by Codeforces tag.
 
 ## Layout
 
-- `templates/` — `base.py`, `base.rs`, `run.sh`, `stress.sh`, `gen.py`, `snippets/`
-- `contests/` — one post-mortem `.md` per rated round
-- topic folders — by insight, not Codeforces tag; `cses/` mirrors CSES sections
+| Path | Contents |
+|------|----------|
+| `implementation/`, `greedy/`, `math/`, `constructive/` | Core problem-solving techniques |
+| `binary-search/`, `two-pointers/`, `bits/` | Search, sweeps (including prefix sums) and bit tricks |
+| `dp/`, `graphs/`, `trees/` | Dynamic programming, graph and tree algorithms |
+| `range-queries/`, `strings/`, `combinatorics/` | Data structures, string algorithms, counting |
+| `cses/` | Mirrors the [CSES Problem Set](https://cses.fi/problemset/) sections |
+| `contests/` | One post-mortem per rated round (see `contests/TEMPLATE.md`) |
+| `templates/` | Base templates, local runner, stress-test harness, snippet checklist |
 
-File naming: `<contest><letter>-<slug>.{py,rs}`, e.g. `2478A-zero-sum.py`.
-Every file starts with a one-line `insight:` and `time / subs:` comment.
+Files are named `<contest><letter>-<slug>.{py,rs}`, e.g. `2478A-zero-sum.py`.
 
-## Workflow
+## Usage
 
-```
-templates/run.sh math/2478A-zero-sum.py     # reads in.txt if present
+```bash
+templates/run.sh math/2478A-zero-sum.py        # .py or .rs; reads in.txt if present
 templates/stress.sh "python sol.py" "python brute.py" "python gen.py"
 ```
 
-Pre-submit checklist: n = 1 · all equal / all distinct · overflow (Rust: use `i64`/`u64`) ·
-reset state per test · output format and `-1` case · 1-indexing bounds.
+`run.sh` builds Rust with overflow checks and debug assertions on. `stress.sh` compares a solution against a
+brute force on 500 random small cases and prints the first mismatch. Requires Python 3 and a Rust toolchain,
+run from a POSIX shell (Git Bash on Windows).
 
-## Rating log
+## Approach
+
+- Python by default; Rust when the constant factor matters.
+- Write the observation as a comment before the code.
+- Upsolve every contest: a blind attempt first, editorial hints only afterwards, then re-implement from a blank file.
+- Pre-submit checklist: `n = 1`, all equal / all distinct, overflow, per-test resets, output format, indexing bounds.
+
+## Progress
 
 | Date | Round | Before | After | Notes |
 |------|-------|--------|-------|-------|
 
-## Topic status
-
-| Topic | Phase | Solved | Last reviewed |
-|-------|-------|--------|---------------|
-| implementation | 1 | 0 | |
-| greedy | 1 | 0 | |
-| two-pointers / prefix sums | 1 | 0 | |
-| binary-search | 2 | 0 | |
-| math / number theory | 2 | 0 | |
-| bits | 2 | 0 | |
-| constructive | 2 | 0 | |
-| graphs (BFS/DFS/DSU) | 2 | 0 | |
-| dp | 2–3 | 0 | |
-| trees | 3 | 0 | |
-| range-queries | 3 | 0 | |
-| strings | 3 | 0 | |
-| combinatorics | 3 | 0 | |
-
-## Phase 0 checklist
-
-- [ ] Python and Rust toolchains working (`python --version`, `rustc --version`)
-- [ ] Fast I/O templates verified
-- [ ] 15 × 800-rated problems
-- [ ] One rated Div 4 / Div 3
+| Topic | Solved | Last reviewed |
+|-------|--------|---------------|
+| implementation | 0 | |
+| greedy | 0 | |
+| two-pointers / prefix sums | 0 | |
+| binary-search | 0 | |
+| math / number theory | 0 | |
+| bits | 0 | |
+| constructive | 0 | |
+| graphs | 0 | |
+| dp | 0 | |
+| trees | 0 | |
+| range-queries | 0 | |
+| strings | 0 | |
+| combinatorics | 0 | |
