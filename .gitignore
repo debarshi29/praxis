@@ -1,0 +1,7 @@
+__pycache__/
+target/
+in.txt
+in_s.txt
+out_*.txt
+*.exe
+*.pdb
